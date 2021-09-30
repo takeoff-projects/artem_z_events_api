@@ -14,7 +14,7 @@ resource "google_cloud_run_service" "events-api" {
   template {
     spec {
       containers {
-        image = "gcr.io/roi-takeoff-user3/events-api:v1.0"
+        image = "gcr.io/roi-takeoff-user3/events-api:v1.0.1"
         env {
           name = "GOOGLE_CLOUD_PROJECT"
           value = var.project_id
@@ -33,11 +33,10 @@ data "google_iam_policy" "noauth" {
   }
 }
 
-resource "google_project_service" "cloudbuild" {
-  service = "cloudbuild.googleapis.com"
-  disable_on_destroy = false
+resource "google_service_account" "events-api-sa" {
+  account_id   = "events-api-sa"
+  display_name = "Service account for events API"
 }
-
 
 resource "google_cloud_run_service_iam_policy" "noauth" {
   location    = google_cloud_run_service.events-api.location
