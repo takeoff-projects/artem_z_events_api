@@ -9,8 +9,7 @@ Built with `gcloud builds`. Deployed to GCP with Terraform and Cloud Run
 
 Stores Events data in Google Firestore (Native mode)
 
-Cloud Endpoints are used as API gateway. Visit [developer portal](https://endpointsportal.roi-takeoff-user3.cloud.goog/docs/events-api-4kad4w6jba-uc.a.run.app/0/introduction)
-
+Cloud Endpoints are used as API gateway.
 ## Build and deploy
 
 ```
